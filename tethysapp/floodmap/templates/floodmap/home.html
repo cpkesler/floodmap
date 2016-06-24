@@ -1,0 +1,64 @@
+{% extends "floodmap/base.html" %}
+{% load tethys_gizmos %}
+{% load staticfiles %}
+
+{% block app_navigation_items %}
+<h5>Display Layers</h5>
+
+<div align = "left">
+  <li><input type="checkbox" onClick="flood.setVisible(!flood.getVisible());"  id="ch_flood" name="flood" checked>Flood Map</li>
+  <li><input type="checkbox" onClick="land.setVisible(!land.getVisible());"  id="ch_land" name="land" checked>Danger Zones</li>
+</div>
+  <form id='increase-form' action="{% url 'floodmap:home' %}" method="get">
+    {% csrf_token %}
+  <h5>Increase Method</h5>
+    {% gizmo button get_increase %}
+  </form>
+
+  <form id='forecast-form' action="{% url 'floodmap:home' %}" method="get">
+      {% csrf_token %}
+  <h5>Manual Method</h5>
+    {% gizmo text_input depth_input %}
+    {% gizmo button get_flood %}
+
+  <h5>Forecast Method</h5>
+    {% gizmo select_input forecast_range_select %}
+    {% gizmo date_picker forecast_date_picker %}
+    {% gizmo select_input forecast_time_select %}
+    {% gizmo button get_forecast %}
+</form>
+{% endblock %}
+
+{% block app_content %}
+<!-- This extra bit of style defines the size of the "map" div tag area that shows up later -->
+    <style>
+      .map {
+        height: 600px;
+        width: 100%;
+      }
+    </style>
+
+<h5><b>Forecast Slider</b></h5>
+
+<!--Forecast slider bar-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Slider - Snap to increments</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <!--<script src="//code.jquery.com/jquery-1.10.2.js"></script>-->
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+</head>
+<body>
+<p>
+  <label for="amount">Flood Depth (meters):</label>
+  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:normal;">
+</p>
+<div id="slider"></div>
+</body>
+</html>
+
+<!--div tag for map-->
+    <div id="map" class="map"></div>
+{% endblock %}
