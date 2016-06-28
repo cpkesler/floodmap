@@ -1,9 +1,50 @@
 #slider {
-width: 40%;
+width: 100%;
 margin-bottom: 10px;
 }
 
 #map {
 height: 100%;
 width: 100%;
+}
+
+.foo {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, .2);
+}
+
+.high {
+  background: #b30000;
+}
+
+.medium {
+  background: #e60000;
+}
+
+.low {
+  background: #ff8080;
+}
+
+.open {
+  background: #ffcccc;
+}
+
+.flood {
+  background: #1E90FF;
+}
+
+.circle_green {
+    float: left;
+    width: 5px;
+    padding: 8px 8px;
+    border: 1px solid #000000;
+    border-radius: 25px;
+    background-color: #00FF00;
+}
+
+.space {
+padding-top: 4px;
 }

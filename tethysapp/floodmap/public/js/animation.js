@@ -7,22 +7,10 @@ var baseLayer = new ol.layer.Tile({
     source: new ol.source.MapQuest({layer: 'osm'})
 });
 
-var range_length = range_list.length
-var range_input = range_list[0].toString().split(".").join("")
-
 //Define all WMS Sources:
+
 var FloodMap =  new ol.source.TileWMS({
-        url:'http://geoserver.byu.edu/arcgis/services/HANDfloodmap/Flood_' + range_input + '/MapServer/WmsServer?',
-
-        params:{
-            LAYERS:"2",
-//            FORMAT:"image/png", //Not a necessary line, but maybe useful if needed later
-        },
-        crossOrigin: 'Anonymous' //This is necessary for CORS security in the browser
-        });
-
-var AddressPoints =  new ol.source.TileWMS({
-        url:'http://geoserver.byu.edu/arcgis/services/Handfloodmap/Flood_' + range_input + '/MapServer/WmsServer?',
+        url:'http://geoserver.byu.edu/arcgis/services/HANDfloodmap/Flood_0/MapServer/WmsServer?',
 
         params:{
             LAYERS:"0",
@@ -32,7 +20,7 @@ var AddressPoints =  new ol.source.TileWMS({
         });
 
 var LandCover =  new ol.source.TileWMS({
-        url:'http://geoserver.byu.edu/arcgis/services/HANDfloodmap/Flood_' + range_input + '/MapServer/WmsServer?',
+        url:'http://geoserver.byu.edu/arcgis/services/HANDfloodmap/Flood_0/MapServer/WmsServer?',
 
         params:{
             LAYERS:"1",
@@ -41,12 +29,19 @@ var LandCover =  new ol.source.TileWMS({
         crossOrigin: 'Anonymous' //This is necessary for CORS security in the browser
         });
 
+var AddressPoints =  new ol.source.TileWMS({
+        url:'http://geoserver.byu.edu/arcgis/services/HANDfloodmap/Flood_0/MapServer/WmsServer?',
+
+        params:{
+            LAYERS:"2",
+//            FORMAT:"image/png", //Not a necessary line, but maybe useful if needed later
+        },
+        crossOrigin: 'Anonymous' //This is necessary for CORS security in the browser
+        });
+
+
 //Define all WMS layers
 //The gauge layers can be changed to layer.Image instead of layer.Tile (and .ImageWMS instead of .TileWMS) for a single tile
-var address = new ol.layer.Tile({
-    source:AddressPoints
-    });
-
 var land = new ol.layer.Tile({
     source:LandCover
     });
@@ -55,13 +50,17 @@ var flood = new ol.layer.Tile({
     source:FloodMap
     }); //Thanks to http://jsfiddle.net/GFarkas/tr0s6uno/ for getting the layer working
 
-//Set opacity of layers
-flood.setOpacity(0.5);
-land.setOpacity(0.8);
-address.setOpacity(0.7);
+var address = new ol.layer.Tile({
+    source:AddressPoints
+    });
 
-sources = [AddressPoints, FloodMap, LandCover];
-layers = [baseLayer, address, flood, land];
+//Set opacity of layers
+address.setOpacity(0.9);
+flood.setOpacity(0.6);
+land.setOpacity(0.8);
+
+sources = [FloodMap, LandCover, AddressPoints];
+layers = [baseLayer, flood, land, address];
 
 //Establish the view area. Note the reprojection from lat long (EPSG:4326) to Web Mercator (EPSG:3857)
 var view = new ol.View({
@@ -96,19 +95,17 @@ map.addControl(new ol.control.ZoomSlider());
     observer.observe(target, config);
 }());
 
+
 //Here we set the styles and inital setting for the slider bar (https://jqueryui.com/slider/#steps)
 $(function() {
-    var label_text = window.location.search.indexOf('flood_forecast') != -1 ? 'Time Step (hour):' : 'Flood Depth (meter):'
-    $( "#label" ).text(label_text)
     $( "#slider" ).slider({
-      value:1,
-      min: 1,
-      max: range_length,
-      step: 1,
+      value:0,
+      min: 0,
+      max: 12,
+      step: 0.5,
       slide: function( event, ui ) {
-      var range_value = range_list[ui.value - 1];
         $( "#amount" ).val( ui.value );
-        var decimal_value = range_value.toString().split(".").join("")
+        var decimal_value = ui.value.toString().split(".").join("")
         var url = 'http://geoserver.byu.edu/arcgis/services/HANDfloodmap/Flood_' + decimal_value + '/MapServer/WmsServer?';
         LandCover.setUrl(url);
         FloodMap.setUrl(url);

@@ -8,7 +8,7 @@ class Floodmap(TethysAppBase):
 
     name = 'floodmap'
     index = 'floodmap:home'
-    icon = 'floodmap/images/icon.gif'
+    icon = 'floodmap/images/flood.jpg'
     package = 'floodmap'
     root_url = 'floodmap'
     color = '#2ecc71'
