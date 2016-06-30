@@ -67,8 +67,9 @@ def home(request):
                        attributes='form=increase-form',
                        submit=True)
 
+    # Dictionary for number of houses impacted by flood for each depth
     house_count_dict = {
-        0: 5,
+        0: 0,
         0.5: 917,
         1: 1605,
         1.5: 2314,
@@ -86,10 +87,14 @@ def home(request):
         7.5: 16067,
         8: 17124,
         8.5: 18329,
-        9: 19591
+        9: 19591,
+        9.5: 20826,
+        10: 21928,
+        10.5: 22998,
+        11: 24239
     }
 
-    # I'm defining the context here because it used below (more items are added further down)
+    # I'm defining the context here because the items contained in this context are used  below (more items are added further down)
     context = {"forecast_range_select": forecast_range_select,
                "forecast_date_picker": forecast_date_picker,
                "forecast_time_select": forecast_time_select,
@@ -202,29 +207,9 @@ def home(request):
                 range_slider = range(1,81)
             # range_list = zip(range_slider, time_series_list_api)
             range_list = [list(a) for a in zip(range_slider, time_series_list_api, house_count_list)]
-            print range_list
+            # print range_list
 
-
-
-
-
-            # elif abc == 8:
-            #     houses = 17124
-            # elif abc == 8.5:
-            #     houses = 18329
-            # elif abc == 9:
-            #     houses = 19591
-            # elif abc == 9.5:
-            #     houses = 20826
-            # elif abc == 10:
-            #     houses = 21928
-            # elif abc == 10.5:
-            #     houses = 22998
-            # elif abc == 11:
-            #     houses = 24239
-
-
-            # Items to be added to context, but not defined until this point
+            # Items to be added to context, but not defined until just before this point
             context["forecast_range"] = forecast_range
             context["range_list"] = range_list
 
