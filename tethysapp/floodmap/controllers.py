@@ -67,12 +67,35 @@ def home(request):
                        attributes='form=increase-form',
                        submit=True)
 
+    house_count_dict = {
+        0: 5,
+        0.5: 917,
+        1: 1605,
+        1.5: 2314,
+        2: 3144,
+        2.5: 4075,
+        3: 5118,
+        3.5: 6359,
+        4: 7465,
+        4.5: 8517,
+        5: 9567,
+        5.5: 10775,
+        6: 12377,
+        6.5: 13689,
+        7: 14927,
+        7.5: 16067,
+        8: 17124,
+        8.5: 18329,
+        9: 19591
+    }
+
     # I'm defining the context here because it used below (more items are added further down)
     context = {"forecast_range_select": forecast_range_select,
                "forecast_date_picker": forecast_date_picker,
                "forecast_time_select": forecast_time_select,
                "get_forecast": get_forecast,
-               "get_increase": get_increase}
+               "get_increase": get_increase,
+               "house_count_dict": house_count_dict}
 
     # Get input from gizmos
     forecast_range = None
@@ -94,6 +117,7 @@ def home(request):
 
         # URL for getting forecast data and put in a list
         time_series_list_api = []
+        house_count_list = []
         if comid is not None and len(comid) > 0:
             lag = 't00z'
             forecast_size = request.GET['forecast_range']
@@ -111,6 +135,7 @@ def home(request):
             # print data_api
             x = data_api.split('dateTimeUTC=')
             x.pop(0)
+
 
             for elm in x:
                 info = elm.split(' ')
@@ -163,24 +188,47 @@ def home(request):
                     value_round_int = 10
                 elif value_round_int >= 430677 and value_round_int < 466267:
                     value_round_int = 10.5
-                elif value_round_int >= 466267 and value_round_int < 504798:
+                elif value_round_int >= 466267:
                     value_round_int = 11
-                elif value_round_int >= 504798:
-                    value_round_int = 11.5
+
+                house_count_list.append(house_count_dict[value_round_int])
                 time_series_list_api.append(value_round_int)
+
             # print time_series_list_api
             # Put forecast data ito a numbered list based on short or medium range
             if forecast_range == 'short_range':
                 range_slider = range(1, 16)
             elif forecast_range == 'medium_range':
                 range_slider = range(1,81)
-            range_list = zip(range_slider, time_series_list_api)
-
+            # range_list = zip(range_slider, time_series_list_api)
+            range_list = [list(a) for a in zip(range_slider, time_series_list_api, house_count_list)]
             print range_list
+
+
+
+
+
+            # elif abc == 8:
+            #     houses = 17124
+            # elif abc == 8.5:
+            #     houses = 18329
+            # elif abc == 9:
+            #     houses = 19591
+            # elif abc == 9.5:
+            #     houses = 20826
+            # elif abc == 10:
+            #     houses = 21928
+            # elif abc == 10.5:
+            #     houses = 22998
+            # elif abc == 11:
+            #     houses = 24239
+
 
             # Items to be added to context, but not defined until this point
             context["forecast_range"] = forecast_range
             context["range_list"] = range_list
+
+
 
 
 

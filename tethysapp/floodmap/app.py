@@ -11,8 +11,8 @@ class Floodmap(TethysAppBase):
     icon = 'floodmap/images/flood.jpg'
     package = 'floodmap'
     root_url = 'floodmap'
-    color = '#2ecc71'
-    description = 'Place a brief description of your app here.'
+    color = '#00BFFF'
+    description = 'Display possible floods and flood forecasts for Tuscaloosa, Alabama.'
     enable_feedback = False
     feedback_emails = []
 

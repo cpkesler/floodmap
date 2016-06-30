@@ -10,7 +10,7 @@ var baseLayer = new ol.layer.Tile({
 //Define all WMS Sources:
 
 var FloodMap =  new ol.source.TileWMS({
-        url:'http://geoserver.byu.edu/arcgis/services/HANDfloodmap/Flood_0/MapServer/WmsServer?',
+        url:'',
 
         params:{
             LAYERS:"0",
@@ -20,7 +20,7 @@ var FloodMap =  new ol.source.TileWMS({
         });
 
 var LandCover =  new ol.source.TileWMS({
-        url:'http://geoserver.byu.edu/arcgis/services/HANDfloodmap/Flood_0/MapServer/WmsServer?',
+        url:'',
 
         params:{
             LAYERS:"1",
@@ -30,7 +30,7 @@ var LandCover =  new ol.source.TileWMS({
         });
 
 var AddressPoints =  new ol.source.TileWMS({
-        url:'http://geoserver.byu.edu/arcgis/services/HANDfloodmap/Flood_0/MapServer/WmsServer?',
+        url:'',
 
         params:{
             LAYERS:"2",
@@ -101,15 +101,21 @@ $(function() {
     $( "#slider" ).slider({
       value:0,
       min: 0,
-      max: 11.5,
+      max: 11,
       step: 0.5,
       slide: function( event, ui ) {
         $( "#amount" ).val( ui.value );
         var decimal_value = ui.value.toString().split(".").join("")
-        var url = 'http://geoserver.byu.edu/arcgis/services/HANDfloodmap/Flood_' + decimal_value + '/MapServer/WmsServer?';
-        LandCover.setUrl(url);
-        FloodMap.setUrl(url);
-        AddressPoints.setUrl(url);
+        if (ui.value != 0) {
+            var url = 'http://geoserver.byu.edu/arcgis/services/HANDfloodmap/Flood_' + decimal_value + '/MapServer/WmsServer?';
+           }
+        else {
+            var url = ''
+        }
+            LandCover.setUrl(url);
+            FloodMap.setUrl(url);
+            AddressPoints.setUrl(url);
+        $( "#house_count").text(house_count_dict[ui.value])
       }
     });
     $( "#amount" ).val( $( "#slider" ).slider( "value" ) );

@@ -98,7 +98,12 @@ map.addControl(new ol.control.ZoomSlider());
 
 //Here we set the styles and inital setting for the slider bar (https://jqueryui.com/slider/#steps)
 $(function() {
-    var label_text = window.location.search.indexOf('flood_forecast') != -1 ? 'Time Step (hour):' : 'Flood Depth (meter):'
+        if (window.location.search.indexOf('short_range') != -1) {
+            var label_text = window.location.search.indexOf('flood_forecast') != -1 ? 'Time Step (hour):' : 'Flood Depth (meter):'
+        }
+        else {
+            var label_text = window.location.search.indexOf('flood_forecast') != -1 ? 'Time Step (x3 hours):' : 'Flood Depth (meter):'
+        }
     $( "#label" ).text(label_text)
     $( "#slider" ).slider({
       value:1,
@@ -106,13 +111,15 @@ $(function() {
       max: range_length,
       step: 1,
       slide: function( event, ui ) {
-      var range_value = range_list[ui.value - 1];
+      var range_value = range_list[ui.value - 1][1];
         $( "#amount" ).val( ui.value );
         var decimal_value = range_value.toString().split(".").join("")
         var url = 'http://geoserver.byu.edu/arcgis/services/HANDfloodmap/Flood_' + decimal_value + '/MapServer/WmsServer?';
         LandCover.setUrl(url);
         FloodMap.setUrl(url);
         AddressPoints.setUrl(url);
+        $( "#house_count").text(range_list[ui.value - 1][2]);
+
       }
     });
     $( "#amount" ).val( $( "#slider" ).slider( "value" ) );
