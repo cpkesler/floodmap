@@ -10,8 +10,8 @@ width: 100%;
 
 .foo {
   float: left;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   margin: 5px;
   border: 1px solid rgba(0, 0, 0, .2);
 }
@@ -39,12 +39,12 @@ width: 100%;
 .circle_green {
     float: left;
     width: 5px;
-    padding: 8px 8px;
+    padding: 7px 7px;
     border: 1px solid #000000;
     border-radius: 25px;
     background-color: #00FF00;
 }
 
 .space {
-padding-top: 4px;
+padding-top: 2px;
 }

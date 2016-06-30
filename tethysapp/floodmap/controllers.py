@@ -5,7 +5,6 @@ import urllib2
 from tethys_sdk.gizmos import DatePicker
 from tethys_sdk.gizmos import Button
 from tethys_sdk.gizmos import SelectInput
-from tethys_sdk.gizmos import TextInput
 
 @login_required()
 def home(request):

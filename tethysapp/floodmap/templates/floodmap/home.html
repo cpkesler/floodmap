@@ -3,7 +3,7 @@
 {% load staticfiles %}
 
 {% block app_navigation_items %}
-<h5>Toggle Layers</h5>
+<h6>Toggle Layers</h6>
 
 <div align = "left">
 
@@ -24,7 +24,7 @@
 
   <form id='increase-form' action="{% url 'floodmap:home' %}" method="get">
     {% csrf_token %}
-  <h5>Flood Animation</h5>
+  <h6>Flood Animation</h6>
     {% gizmo button get_increase %}
   </form>
 
@@ -34,7 +34,7 @@
     <!--{% gizmo text_input depth_input %}-->
     <!--{% gizmo button get_flood %}-->
 
-  <h5>Flood Forecast</h5>
+  <h6>Flood Forecast</h6>
     {% gizmo select_input forecast_range_select %}
     {% gizmo date_picker forecast_date_picker %}
     {% gizmo select_input forecast_time_select %}
@@ -71,6 +71,8 @@
 <div id="slider"></div>
 </body>
 </html>
+
+<p>Number of Houses Impacted: </p>
 
 <!--div tag for map-->
     <div id="map" class="map"></div>

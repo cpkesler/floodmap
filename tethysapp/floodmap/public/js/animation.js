@@ -55,9 +55,9 @@ var address = new ol.layer.Tile({
     });
 
 //Set opacity of layers
-address.setOpacity(0.9);
-flood.setOpacity(0.6);
-land.setOpacity(0.8);
+address.setOpacity(0.8);
+flood.setOpacity(0.8);
+land.setOpacity(0.7);
 
 sources = [FloodMap, LandCover, AddressPoints];
 layers = [baseLayer, flood, land, address];
@@ -101,7 +101,7 @@ $(function() {
     $( "#slider" ).slider({
       value:0,
       min: 0,
-      max: 12,
+      max: 11.5,
       step: 0.5,
       slide: function( event, ui ) {
         $( "#amount" ).val( ui.value );

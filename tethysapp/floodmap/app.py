@@ -6,7 +6,7 @@ class Floodmap(TethysAppBase):
     Tethys app class for floodmap.
     """
 
-    name = 'floodmap'
+    name = 'Tuscaloosa HAND Flood Map'
     index = 'floodmap:home'
     icon = 'floodmap/images/flood.jpg'
     package = 'floodmap'

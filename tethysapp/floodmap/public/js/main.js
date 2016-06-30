@@ -56,7 +56,7 @@ var flood = new ol.layer.Tile({
     }); //Thanks to http://jsfiddle.net/GFarkas/tr0s6uno/ for getting the layer working
 
 //Set opacity of layers
-flood.setOpacity(0.5);
+flood.setOpacity(0.8);
 land.setOpacity(0.8);
 address.setOpacity(0.7);
 
