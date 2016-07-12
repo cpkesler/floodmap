@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2e69222d-19e3-46af-b4ab-2a8f2e9267e5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tethysapp/floodmap/controllers.py" afterPath="$PROJECT_DIR$/tethysapp/floodmap/controllers.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tethysapp/floodmap/public/js/animation.js" afterPath="$PROJECT_DIR$/tethysapp/floodmap/public/js/animation.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tethysapp/floodmap/public/js/main.js" afterPath="$PROJECT_DIR$/tethysapp/floodmap/public/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tethysapp/floodmap/templates/floodmap/home.html" afterPath="$PROJECT_DIR$/tethysapp/floodmap/templates/floodmap/home.html" />
     </list>
     <ignored path="tethysapp-floodmap.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tethysapp/floodmap/public/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="33" />
+            <state relative-caret-position="165">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -60,7 +58,7 @@
       <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tethysapp/floodmap/templates/floodmap/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
+            <state relative-caret-position="570">
               <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#p#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -102,7 +100,7 @@
       <file leaf-file-name="controllers.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tethysapp/floodmap/controllers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1373">
+            <state relative-caret-position="1710">
               <caret line="121" column="27" selection-start-line="121" selection-start-column="27" selection-end-line="121" selection-end-column="27" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
@@ -111,11 +109,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="animation.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="animation.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tethysapp/floodmap/public/js/animation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+            <state relative-caret-position="165">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -146,10 +144,10 @@
         <option value="$PROJECT_DIR$/tethysapp/floodmap/app.py" />
         <option value="$PROJECT_DIR$/tethysapp/floodmap/public/css/main.css" />
         <option value="$PROJECT_DIR$/tethysapp/floodmap/templates/floodmap/base.html" />
-        <option value="$PROJECT_DIR$/tethysapp/floodmap/public/js/main.js" />
-        <option value="$PROJECT_DIR$/tethysapp/floodmap/public/js/animation.js" />
         <option value="$PROJECT_DIR$/tethysapp/floodmap/controllers.py" />
         <option value="$PROJECT_DIR$/tethysapp/floodmap/templates/floodmap/home.html" />
+        <option value="$PROJECT_DIR$/tethysapp/floodmap/public/js/animation.js" />
+        <option value="$PROJECT_DIR$/tethysapp/floodmap/public/js/main.js" />
       </list>
     </option>
   </component>
@@ -184,7 +182,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -337,11 +334,12 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Tethysapp-GaugeViewer" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -895,14 +893,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tethysapp/floodmap/public/js/animation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tethysapp/floodmap/public/js/gizmo.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -913,7 +903,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tethysapp/floodmap/controllers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1373">
+        <state relative-caret-position="1710">
           <caret line="121" column="27" selection-start-line="121" selection-start-column="27" selection-end-line="121" selection-end-column="27" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
@@ -923,7 +913,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tethysapp/floodmap/templates/floodmap/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
+        <state relative-caret-position="570">
           <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
           <folding>
             <element signature="n#style#0;n#input#0;n#p#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -933,8 +923,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tethysapp/floodmap/public/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="33" />
+        <state relative-caret-position="165">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tethysapp/floodmap/public/js/animation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
