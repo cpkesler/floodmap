@@ -11,7 +11,6 @@ var baseLayer = new ol.layer.Tile({
     });
 
 //Define all WMS Sources:
-
 var FloodMap =  new ol.source.TileWMS({
         url:'',
 

@@ -32,7 +32,10 @@ def home(request):
     forecast_range_select = SelectInput(display_text='Forecast Size',
                                         name='forecast_range',
                                         multiple=False,
-                                        options=[ ('Short', 'short_range'), ('Medium', 'medium_range')],
+                                        options=[ ('Short', 'short_range'),
+                                                  ('Medium', 'medium_range'),
+                                                  # ('Analysis & Assimilation', 'analysis_assim')
+                                                  ],
                                         initial=['medium_range'],
                                         original=['medium_range'])
 
@@ -150,13 +153,13 @@ def home(request):
             if forecast_range == "analysis_assim":
                 forecast_date_end = request.GET['forecast_date_end']
             url = 'https://apps.hydroshare.org/apps/nwm-forecasts/api/GetWaterML/?config={0}&geom=channel_rt&variable=streamflow&COMID={1}&lon=&lat=&startDate={2}&endDate={3}&time={4}&lag={5}'.format(forecast_range, comid, forecast_date_start, forecast_date_end, comid_time, lag)
-            # print url
+            print url
             url_api = urllib2.urlopen(url)
             data_api = url_api.read()
             x = data_api.split('dateTimeUTC=')
             x.pop(0)
 
-
+            # I used a rating curve for Balck Warrior River to find general flow vs depth relationship
             for elm in x:
                 info = elm.split(' ')
                 value = info[7].split('<')
