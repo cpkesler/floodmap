@@ -6,7 +6,7 @@ var projection = ol.proj.get('EPSG:3857');
 var baseLayer = new ol.layer.Tile({
     source: new ol.source.BingMaps({
         key: '5TC0yID7CYaqv3nVQLKe~xWVt4aXWMJq2Ed72cO4xsA~ApdeyQwHyH_btMjQS1NJ7OHKY8BK-W-EMQMrIavoQUMYXeZIQOUURnKGBOC7UCt4',
-        imagerySet: 'AerialWithLabels'  // Options 'Aerial', 'AerialWithLabels', 'Road'
+        imagerySet: 'Road'  // Options 'Aerial', 'AerialWithLabels', 'Road'
         })
     });
 

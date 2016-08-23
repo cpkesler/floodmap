@@ -109,7 +109,7 @@ $(function() {
         $( "#amount" ).val( ui.value );
         var decimal_value = ui.value.toString().split(".").join("")
         if (ui.value != 0) {
-            var url = 'http://geoserver.byu.edu/arcgis/services/HANDfloodmap/Flood_' + decimal_value + '/MapServer/WmsServer?';
+            var url = 'http://geoserver.byu.edu/arcgis/services/Alabama_Flood/Flood_' + decimal_value + '/MapServer/WmsServer?';
            }
         else {
             var url = ''
@@ -122,3 +122,4 @@ $(function() {
     });
     $( "#amount" ).val( $( "#slider" ).slider( "value" ) );
   });
+
