@@ -101,11 +101,11 @@ map.addControl(new ol.control.ZoomSlider());
 
 //Here we set the styles and inital setting for the slider bar (https://jqueryui.com/slider/#steps)
 $(function() {
-        if (window.location.search.indexOf('short_range') != -1) {
-            var label_text = window.location.search.indexOf('flood_forecast') != -1 ? 'Time Step (hour):' : 'Flood Depth (meter):'
+        if (window.location.search.indexOf('medium_range') != -1) {
+            var label_text = window.location.search.indexOf('flood_forecast') != -1 ? 'Time Step (x3 hour):' : 'Flood Depth (meter):'
         }
         else {
-            var label_text = window.location.search.indexOf('flood_forecast') != -1 ? 'Time Step (x3 hours):' : 'Flood Depth (meter):'
+            var label_text = window.location.search.indexOf('flood_forecast') != -1 ? 'Time Step:' : 'Flood Depth (meter):'
         }
     $( "#label" ).text(label_text)
     $( "#slider" ).slider({

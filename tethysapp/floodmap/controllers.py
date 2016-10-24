@@ -34,7 +34,7 @@ def home(request):
                                         multiple=False,
                                         options=[ ('Short', 'short_range'),
                                                   ('Medium', 'medium_range'),
-                                                  # ('Analysis & Assimilation', 'analysis_assim')
+                                                  ('Analysis & Assimilation', 'analysis_assim')
                                                   ],
                                         initial=['medium_range'],
                                         original=['medium_range'])
@@ -57,7 +57,7 @@ def home(request):
                                           format='yyyy-mm-dd',
                                           start_view='month',
                                           today_button=True,
-                                          initial=two_weeks_ago_str)
+                                          initial=now_str)
 
     # Forecast time selector
     forecast_time_select = SelectInput(display_text='Start Time',
