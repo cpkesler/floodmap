@@ -7,7 +7,6 @@ from tethys_sdk.gizmos import Button
 from tethys_sdk.gizmos import SelectInput
 from datetime import datetime, timedelta
 
-
 @login_required()
 def home(request):
     """
@@ -219,7 +218,9 @@ def home(request):
 
             length = len(time_series_list_api)
 
-            # print time_series_list_api
+            # print range_slider
+            print time_series_list_api
+            print house_count_list
             # Put forecast data ito a numbered list based on short or medium range
             if forecast_range == 'short_range':
                 range_slider = range(1, length + 1)
